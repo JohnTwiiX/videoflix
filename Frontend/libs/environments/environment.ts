@@ -1,4 +1,4 @@
 export const environment = {
   // production: false,
-  baseUrl: 'https://api.marcelherzog.net/videoflix',
+  baseUrl: 'http://localhost:8000/videoflix',
 };

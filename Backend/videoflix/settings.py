@@ -29,7 +29,6 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'api.marcelherzog.net',
 ]
 
 CACHE_TTL = 60 * 15
@@ -55,11 +54,11 @@ RQ_QUEUES = {
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'marcelherzog.net'
+EMAIL_HOST = 'johnfieweger.de'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'info@marcelherzog.net'
+EMAIL_HOST_USER = 'info@johnfieweger.de'
 EMAIL_HOST_PASSWORD = '5b0p9dW7~'
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -115,23 +114,23 @@ WSGI_APPLICATION = 'videoflix.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'videoflix',
-        'USER': 'dragz',
-        'PASSWORD': 'dragz',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'videoflix',
+#         'USER': 'dragz',
+#         'PASSWORD': 'dragz',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

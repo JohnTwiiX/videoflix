@@ -17,13 +17,11 @@ import { CommonModule } from '@angular/common';
       <br />
       <br />
 
-      Marcel Herzog
+      John Fieweger
       <br />
-      Hauptstr. 15
+      Schwerinallee 19
       <br />
-      69231 Rauenberg
-      <br />
-      Postfach-NR: 1131
+      15806 Zossen
       <br />
       <br />
       Datenerfassung auf unserer Website
@@ -78,4 +76,4 @@ import { CommonModule } from '@angular/common';
   styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DataProtectionComponent {}
+export class DataProtectionComponent { }

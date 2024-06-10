@@ -11,16 +11,16 @@ import { CommonModule } from '@angular/common';
     <div>
       <h2 class="mb-2">Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
       <p>
-        Marcel Herzog<br />
-        Hauptstr. 15<br />
-        69231 Rauenberg
+        John Fieweger<br />
+        Schwerinallee 19<br />
+        15806 Zossen
       </p>
 
       <h2>Kontakt</h2>
 
       <p class="mb-5">
-        Telefon: 015231984992<br />
-        E-Mail: marcelhe98&#64;gmx.de
+        Telefon: 015770090426<br />
+        E-Mail: john.fieweger98&#64;gmail.com
       </p>
 
       <p>
@@ -37,7 +37,7 @@ import { CommonModule } from '@angular/common';
         Verantwortlicher im Sinne der Datenschutzgesetze, insbesondere der
         EU-Datenschutzgrundverordnung (DSGVO), ist:
       </p>
-      <p>Marcel Herzog</p>
+      <p>John Fieweger</p>
       <h2>Ihre Betroffenenrechte</h2>
       <p>
         Unter den angegebenen Kontaktdaten unseres Datenschutzbeauftragten
@@ -322,7 +322,7 @@ import { CommonModule } from '@angular/common';
         Ausübung oder Verteidigung von Rechtsansprüchen.
       </p>
       <h3>Empfänger eines Widerspruchs</h3>
-      <p>Marcel Herzog</p>
+      <p>John Fieweger</p>
       <hr class="mb-5 mt-5" />
       <h2>Änderung unserer Datenschutzbestimmungen</h2>
       <p class="mb-5">
@@ -338,7 +338,7 @@ import { CommonModule } from '@angular/common';
         E-Mail oder wenden Sie sich direkt an die für den Datenschutz
         verantwortliche Person in unserer Organisation:
       </p>
-      <p>Marcel Herzog<br />marcelhe98&#64;gmx.de</p>
+      <p>John Fieweger<br />john.fieweger98&#64;gmail.com</p>
       <p>
         <em
           >Die Datenschutzerklärung wurde mithilfe der activeMind AG erstellt,
@@ -357,4 +357,4 @@ import { CommonModule } from '@angular/common';
   styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ImprintImprintComponent {}
+export class ImprintImprintComponent { }
