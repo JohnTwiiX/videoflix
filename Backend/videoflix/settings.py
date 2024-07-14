@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    '116.203.70.55'
 ]
 
 CACHE_TTL = 60 * 15
@@ -40,7 +41,7 @@ CACHES = {
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient"
         },
-        "KEY_PREFIX": "videoflix"
+        "KEY_PREFIX": "videoflix-redis"
     }
 }
 
@@ -54,12 +55,12 @@ RQ_QUEUES = {
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'johnfieweger.de'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'info@johnfieweger.de'
-EMAIL_HOST_PASSWORD = '5b0p9dW7~'
+EMAIL_HOST_USER = 'john.fieweger98@gmail.com'
+EMAIL_HOST_PASSWORD = 'zrvk kjos ypmt tojg'
 
 CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
@@ -121,16 +122,16 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'videoflix',
-#         'USER': 'dragz',
-#         'PASSWORD': 'dragz',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'videoflixdb',
+        'USER': 'videoflixuser',
+        'PASSWORD': 'mysecretpassword',
+        'HOST': 'videoflix-db',
+        'PORT': '5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

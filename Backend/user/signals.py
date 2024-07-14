@@ -13,7 +13,8 @@ def user_post_save(sender, instance, created, **kwargs):
 Your registration at VideoFlix was successful.
 To activate your account and gain access, please click on the following link:
 
-https://videoflix.johnfieweger.net/register-confirmation/{instance.pk}
+# https://videoflix.johnfieweger.de/register-confirmation/{instance.pk}
+# http://localhost:4200/register-confirmation/{instance.pk}
 
 Please note that this link is valid only once and must be activated within 24 hours of receiving this email.
 
@@ -34,7 +35,7 @@ Dear {user.username},
 A request to reset your password has been received. If you initiated this password reset, please follow the instructions below to reset your password:
 
 1. Click on the following link to reset your password:
-https://videoflix.johnfieweger.net/reset-password/{token.token}
+https://videoflix.johnfieweger.de/reset-password/{token.token}
 
 2. If you did not request a password reset, please ignore this email. Your account remains secure.
 
