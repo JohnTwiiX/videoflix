@@ -1,5 +1,5 @@
-from django.db import models
 from datetime import date
+from django.db import models
 
 
 class Video(models.Model):
@@ -8,10 +8,8 @@ class Video(models.Model):
     createdTime = models.DateField(default=date.today)
     cover_file = models.FileField(upload_to='covers', blank=True, null=True)
     video_file = models.FileField(upload_to='videos', blank=True, null=True)
-    video_file_720p = models.FileField(
-        upload_to='videos', blank=True, null=True)
-    video_file_480p = models.FileField(
-        upload_to='videos', blank=True, null=True)
+    video_file_720p = models.FileField(upload_to='videos', blank=True, null=True)
+    video_file_480p = models.FileField(upload_to='videos', blank=True, null=True)
 
     def __str__(self):
         return self.title

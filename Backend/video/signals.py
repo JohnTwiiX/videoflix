@@ -1,25 +1,21 @@
-from .models import Video
-from django.db.models.signals import post_delete, post_save
-from django.dispatch import receiver
-import django_rq
-from django_rq import enqueue
 import os
-from functools import partial
+from django.dispatch import receiver
+from django.db.models.signals import post_save, post_delete
+from django_rq import get_queue
+from .models import Video
 from .tasks import convertVideos
-
 
 @receiver(post_save, sender=Video)
 def auto_convert_file_on_save(sender, instance, created, **kwargs):
-    print('werde ausgelöst')
+    print('Signal empfangen: auto_convert_file_on_save')
     if created:
-        print('Bin neu also muss ich auslösen')
-        queue = django_rq.get_queue('default', autocommit=True)
+        print('Neues Video erstellt, Konvertierung wird gestartet')
+        queue = get_queue('default', autocommit=True)
         queue.enqueue(convertVideos, instance)
 
 
 @receiver(post_delete, sender=Video)
 def auto_delete_file_on_delete(sender, instance, **kwargs):
-
     if instance.video_file:
         video_file_path = instance.video_file.path
         if os.path.isfile(video_file_path):

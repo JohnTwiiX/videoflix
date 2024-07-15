@@ -6,4 +6,4 @@ class VideoConfig(AppConfig):
     name = 'video'
     
     def ready(self):
-        import signals
+        import video.signals  # Importiere die Signale beim Start der App
