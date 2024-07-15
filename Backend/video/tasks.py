@@ -1,25 +1,15 @@
 import subprocess
 import os
-import concurrent.futures
 
 def convertVideos(source):
+    print("In convertVideos Funktion")
     new_file_name_480p = source.video_file.path + '_480p.mp4'
     new_file_name_720p = source.video_file.path + '_720p.mp4'
-    converted480p = convert480p(source)
-    converted720p = convert720p(source)
+    convert480p(source, new_file_name_480p)
+    convert720p(source, new_file_name_720p)
 
-    if converted480p:
-        source.video_file_480p.name = 'videos/' + \
-            os.path.basename(new_file_name_480p)
-        source.save()
-    if converted720p:
-        source.video_file_720p.name = 'videos/' + \
-            os.path.basename(new_file_name_720p)
-        source.save()
-
-def convert480p(source):
+def convert480p(source, new_file_name):
     print("In convert480p Funktion")
-    new_file_name = source.video_file.path + '_480p.mp4'
     cmd = [
         'ffmpeg',
         '-i', source.video_file.path,
@@ -31,20 +21,20 @@ def convert480p(source):
         new_file_name
     ]
     print(f"Ausführen von Befehl: {' '.join(cmd)}")
+    process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    stdout, stderr = process.communicate()
+    print(f"ffmpeg Ausgabe: {stdout}")
+    print(f"ffmpeg Fehler: {stderr}")
 
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        future = executor.submit(subprocess.run, cmd, capture_output=True, text=True)
-        run = future.result()
-
-    if run.returncode == 0:
+    if process.returncode == 0:
         print("Konvertierung erfolgreich")
-        return True
+        source.video_file_480p.name = 'videos/' + os.path.basename(new_file_name)
+        source.save()
     else:
-        print("Fehler bei der Konvertierung:", run.stderr)
+        print("Fehler bei der Konvertierung:", stderr)
 
-def convert720p(source):
+def convert720p(source, new_file_name):
     print("In convert720p Funktion")
-    new_file_name = source.video_file.path + '_720p.mp4'
     cmd = [
         'ffmpeg',
         '-i', source.video_file.path,
@@ -56,14 +46,14 @@ def convert720p(source):
         new_file_name
     ]
     print(f"Ausführen von Befehl: {' '.join(cmd)}")
+    process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    stdout, stderr = process.communicate()
+    print(f"ffmpeg Ausgabe: {stdout}")
+    print(f"ffmpeg Fehler: {stderr}")
 
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        future = executor.submit(subprocess.run, cmd, capture_output=True, text=True)
-        run = future.result()
-
-    if run.returncode == 0:
+    if process.returncode == 0:
         print("Konvertierung erfolgreich")
-        return True
+        source.video_file_720p.name = 'videos/' + os.path.basename(new_file_name)
+        source.save()
     else:
-        print("Fehler bei der Konvertierung:", run.stderr)
-
+        print("Fehler bei der Konvertierung:", stderr)
