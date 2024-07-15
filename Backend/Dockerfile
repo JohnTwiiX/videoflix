@@ -27,4 +27,4 @@ RUN pip install --upgrade pip && \
 
 EXPOSE 8060
 # Start Django
-ENTRYPOINT ["gunicorn", "--timeout", "300", "--workers", "3", "videoflix.wsgi:application"]
+ENTRYPOINT ["gunicorn","--timeout", "300", "--workers", "3", "--bind", "0.0.0.0:8000", "videoflix.wsgi:application"]
