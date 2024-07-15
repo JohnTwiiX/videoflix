@@ -5,6 +5,9 @@ WORKDIR /app
 # Copy the directory
 COPY . $WORKDIR
 
+RUN apt-get update && \
+    apt-get install -y ffmpeg
+
 # Install requirements
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
