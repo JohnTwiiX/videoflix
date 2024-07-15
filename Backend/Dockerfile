@@ -10,7 +10,7 @@ RUN apt-get update && \
     apt-get install -y ffmpeg build-essential gcc netcat-openbsd dos2unix
 
 # Convert entrypoint.sh to Unix format and ensure it's executable
-RUN dos2unix /app/entrypoint.sh && chmod +x /app/entrypoint.sh
+# RUN dos2unix /app/entrypoint.sh && chmod +x /app/entrypoint.sh
 
 # Install requirements
 RUN pip install --upgrade pip && \
@@ -20,4 +20,4 @@ RUN pip install --upgrade pip && \
 EXPOSE 8060
 
 # Start the application
-ENTRYPOINT ["/app/entrypoint.sh"]
+ENTRYPOINT ["dos2unix", "/app/entrypoint.sh"]
