@@ -3,7 +3,7 @@ set -e
 
 echo "Waiting for postgres to connect ..."
 
-while ! nc -z db 5432; do
+while ! nc -z videoflix-db 5432; do
   sleep 0.1
 done
 
