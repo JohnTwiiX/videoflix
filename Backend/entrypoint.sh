@@ -11,9 +11,12 @@ echo "PostgreSQL is active"
 python manage.py check --deploy  # Dies prüft, ob die App bereit ist
 echo "Django application is ready"
 
-# python manage.py makemigrations
-# python manage.py migrate
-# python manage.py collectstatic --noinput
+python manage.py makemigrations
+python manage.py migrate
+python manage.py collectstatic --noinput
 
 # Start Gunicorn mit 3 Arbeitern
-gunicorn videoflix.wsgi:application --bind 0.0.0.0:8000 --timeout 300 --workers 3
+gunicorn videoflix.wsgi:application --bind 0.0.0.0:8000 --timeout 300 --workers 3 &
+
+# Start RQ Worker
+python manage.py rqworker default
