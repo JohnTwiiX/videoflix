@@ -41,7 +41,7 @@ CACHE_TTL = 60 * 15
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://videoflix-redis:6379/1",  # Containernamen verwenden
+        "LOCATION": "videoflix-redis:6379/0",  # Containernamen verwenden
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient"
         },
