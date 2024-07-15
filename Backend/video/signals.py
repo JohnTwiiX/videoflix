@@ -10,7 +10,9 @@ from .tasks import convertVideos
 
 @receiver(post_save, sender=Video)
 def auto_convert_file_on_save(sender, instance, created, **kwargs):
+    print('werde ausgelöst')
     if created:
+        print('Bin neu also muss ich auslösen')
         queue = django_rq.get_queue('default', autocommit=True)
         queue.enqueue(convertVideos, instance)
 
