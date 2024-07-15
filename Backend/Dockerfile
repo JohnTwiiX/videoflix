@@ -6,7 +6,7 @@ WORKDIR /app
 COPY . $WORKDIR
 
 RUN apt-get update && \
-    apt-get install -y ffmpeg
+    apt-get install -y ffmpeg build-essential gcc netcat-openbsd
 
 # Install requirements
 RUN pip install --upgrade pip && \
@@ -27,4 +27,7 @@ RUN pip install --upgrade pip && \
 
 EXPOSE 8060
 # Start Django
-ENTRYPOINT ["gunicorn","--timeout", "300", "--workers", "3", "--bind", "0.0.0.0:8000", "videoflix.wsgi:application"]
+
+RUN chmod +x ./entrypoint.sh
+
+ENTRYPOINT ["/app/entrypoint.sh"]
