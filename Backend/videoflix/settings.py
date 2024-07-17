@@ -41,7 +41,7 @@ CACHE_TTL = 60 * 15
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://:env("REDIS_PASSWORD")@videoflix-redis:6379/0",  # Passwort und Host angeben
+        "LOCATION": f"redis://:{env("REDIS_PASSWORD")}@videoflix-redis:6379/0",  # Passwort und Host angeben
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient"
         },
@@ -51,7 +51,7 @@ CACHES = {
 
 RQ_QUEUES = {
     'default': {
-        'URL': 'redis://:env("REDIS_PASSWORD")@videoflix-redis:6379/0',  # Passwort und Host angeben
+        'URL': f'redis://:{env("REDIS_PASSWORD")}@videoflix-redis:6379/0',  # Passwort und Host angeben
         'DEFAULT_TIMEOUT': 720,
     }
 }
