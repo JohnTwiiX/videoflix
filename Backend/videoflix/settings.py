@@ -113,6 +113,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'videoflix.wsgi.application'
 
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10*1024*1024  # your size limit in bytes
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
