@@ -43,10 +43,9 @@ My little project is a Netflix Dummy. Thats have a FE NX Angular project, Django
         -d && \
         --name <name> && \
         --network <your-network> && \
-        -p 6379:6379 redis redis-server && \
-        --appendonly yes && \
-        --maxmemory 1GB && \
-        --maxmemory-policy allkeys-lru
+        -e REDIS_PASSWORD=<password>
+        -p 6379:6379 && \
+        bitnami/redis:latest
     ```
 
 1. create your .env
