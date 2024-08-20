@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   template: `<div
     (mouseenter)="hover(true)"
     (mouseleave)="hover(false)"
-    [style.backgroundImage]="'url(' + video.cover_file + ')'"
+    [style.backgroundImage]="'url(' + 'https://videoflixapi.johnfieweger.de'+video.cover_file + ')'"
     class="flex flex-col justify-between overflow-hidden custom-width rounded-lg h-32 image-container hover:scale-x-1 hover:scale-y-110 hover:scale-x-110 transition-all"
   >
     <img class="w-10 p-2" src="/assets/v-logo.png" alt="" />
