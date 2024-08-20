@@ -18,7 +18,7 @@ import { Router, RouterModule } from '@angular/router';
         autoplay
         loop
         [muted]="true"
-        [src]="randomVideo.video_file"
+        [src]="'https://videoflixapi.johnfieweger.de'+randomVideo.video_file"
         type="video/mp4"
       >
         Dein Browser unterstützt das Video-Tag nicht.
