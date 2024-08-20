@@ -1,3 +1,6 @@
+from rest_framework import serializers
+from .models import Video
+
 class VideoSerializer(serializers.ModelSerializer):
     cover_file = serializers.SerializerMethodField()
     video_file = serializers.SerializerMethodField()
